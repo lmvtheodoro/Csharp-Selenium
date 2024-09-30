@@ -2,6 +2,15 @@ name: End-to-End Tests
 
 on:
   workflow_dispatch:
+    inputs:
+      run:
+        description: 'Set to true to run the tests'
+        required: true
+        default: 'true'
+      browser:
+        description: 'Choose the browser to use'
+        required: true
+        default: 'Chrome'
 
 jobs:
   e2e:
@@ -20,8 +29,8 @@ jobs:
 
       - name: Set environment variables
         run: |
-          echo "Run=<value>" >> $GITHUB_ENV
-          echo "Browser=<value>" >> $GITHUB_ENV
+          echo "Run=${{ github.event.inputs.run }}" >> $GITHUB_ENV
+          echo "Browser=${{ github.event.inputs.browser }}" >> $GITHUB_ENV
 
       - name: Run tests
         run: dotnet test --configuration Release
