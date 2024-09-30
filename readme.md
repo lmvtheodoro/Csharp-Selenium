@@ -90,7 +90,7 @@ Restore the project's dependencies to ensure everything is up to date:
 ```
 
 ### Additional Tips 💡
-- **Design Pattern Choice**: Choosing a Design Pattern: Select your design pattern thoughtfully. Take into account the tools you'll be using, the types of tests you'll develop, and the specific characteristics of your project and team. This will help ensure a smoother workflow and better collaboration.
+- **Design Pattern Choice**: Select your design pattern thoughtfully, take into account the tools you'll be using, the types of tests you'll develop, and the specific characteristics of your project and team. This will help ensure a smoother workflow and better collaboration.
 - **WebDriver Configuration**: Don't forget to configure the WebDriver you want to use.
 - **Writing Tests**: Create your test classes using NUnit to ensure your features are working correctly.
 
