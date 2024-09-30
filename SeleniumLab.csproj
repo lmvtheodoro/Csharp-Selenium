@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <None Include=".github\workflows\ci.yml" />
+    <None Include=".github\workflows\test.yml" />
   </ItemGroup>
 
 </Project>
