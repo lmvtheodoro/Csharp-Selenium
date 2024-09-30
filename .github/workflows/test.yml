@@ -1,0 +1,27 @@
+name: End-to-End Tests
+
+on:
+  workflow_dispatch:
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Install Google Chrome
+        run: |
+          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+          echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+          sudo apt update
+          sudo apt install -y google-chrome-stable
+
+      - name: Set environment variables
+        run: |
+          echo "Run=<value>" >> $GITHUB_ENV
+          echo "Browser=<value>" >> $GITHUB_ENV
+
+      - name: Run tests
+        run: dotnet test --configuration Release
